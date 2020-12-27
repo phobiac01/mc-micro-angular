@@ -1,10 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
-    <Router>
+    <div>
       <h1>Pages:</h1>
       <Link to={`/serverList`}>
         <button>Server List</button>
@@ -20,10 +19,9 @@ export default function HomePage() {
       </Link>
       <br />
       <h1>Actions:</h1>
-      <button onClick={() => alert("Clicked!")}>Action</button>
-      <button onClick={() => alert("Clicked!")}>Action</button>
-      <button onClick={() => alert("Clicked!")}>Action</button>
-      <button onClick={() => alert("Clicked!")}>Action</button>
-    </Router>
+      <button onClick={() => alert("Clicked!")}>Get Server Count</button>
+      <button onClick={() => alert("Clicked!")}>Stop All Servers</button>
+      <button onClick={() => alert("Clicked!")}>Broadcast To All</button>
+    </div>
   );
 }

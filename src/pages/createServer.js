@@ -12,7 +12,7 @@ export default function CreateServer() {
     { property: "pvp", possibleValues: [true, false] },
   ];
 
-  return newServerProperties.map((prop) => (
+  return newServerProperties.map((prop,) => (
     <CycleButton property={prop.property} possibleValues={prop.possibleValues} />
   ));
 }

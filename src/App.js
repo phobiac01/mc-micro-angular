@@ -10,21 +10,11 @@ import DeleteServer from "./pages/deleteServer";
 export default function App() {
   return (
     <Switch>
-      <Route path="/serverList">
-        <ServerList />
-      </Route>
-      <Route path="/createServer">
-        <CreateServer />
-      </Route>
-      <Route path="/updateServer">
-        <UpdateServer />
-      </Route>
-      <Route path="/deleteServer">
-        <DeleteServer />
-      </Route>
-      <Route path="/">
-        <HomePage />
-      </Route>
+      <Route path="/serverList" component={ServerList} />
+      <Route path="/createServer" component={CreateServer} />
+      <Route path="/updateServer" component={UpdateServer} />
+      <Route path="/deleteServer" component={DeleteServer} />
+      <Route exact path="/" component={HomePage} />
     </Switch>
   );
 }
