@@ -2,24 +2,76 @@ async function getServerInfo(serverId) {
 	const result = await fetch(global.apiBaseUrl + "/server?" + serverId);
 	return result;
 }
+// == User Requests ======================================================
 
-async function createServer() {
-	console.log("createServer button works!");
-}
+exports.signUp = async (newUserData) => {
+	console.log("signUp works!");
+	// Should return new user object and success message
+	// Should also update JWT cookie with fresh session
+};
 
-async function startServer(serverId) {
-	console.log("startServer button works!");
-}
+exports.logIn = async (username, password) => {
+	console.log("logIn works!");
+	// Should respond with success and new JWT or 403
+};
 
-async function stopServer(serverId) {
-	console.log("stopServer button works!");
-}
+exports.logOut = async () => {
+	console.log("logOut works!");
+	// Should respond with success and clear JWT and related session ID
+};
 
-async function deleteServer(serverId) {
-	console.log("seleteServer button works!");
-}
+// == Server REST ========================================================
 
-// =======================================================================
+exports.createServer = async (params) => {
+	console.log("createServer works!");
+	// Should return with server object and success or error message
+	return new Promise.reject(new Error("Didnt work..."));
+};
+
+exports.startServer = async (serverId) => {
+	// Should return with success or failure message
+	console.log("startServer works!");
+};
+
+exports.stopServer = async (serverId) => {
+	// Should return with success or failure message
+	console.log("stopServer works!");
+};
+
+exports.deleteServer = async (serverId) => {
+	// Should return with success or failure message
+	console.log("deleteServer works!");
+};
+
+// == Server Details =====================================================
+
+exports.getServers = async () => {
+	// Should return with list of all servers bound to the current user
+	console.log("getServers works!");
+	return [
+		{ serverName: "Some BS Server Name", serverId: "lmaaaaoooooooooooo", isRunning: false },
+		{ serverName: "Some Other BS Server Name", serverId: "yeeeeettttuuuussss", isRunning: true },
+		{
+			serverName: "Some Other Other BS Server Name",
+			serverId: "42000000000000000",
+			isRunning: false,
+		},
+	];
+};
+
+exports.getServer = async (serverId) => {
+	// Should return the serverObject of specified server only, or error message
+	console.log("getServer works!");
+};
+
+// == Webhooks ===========================================================
+
+exports.subscribeToServersStatus = async (servers) => {
+	// TODO: Impliment webhooks to keep tabs on servers status and player count
+	console.log("serverSubscribe works!");
+};
+
+// ==========================================================================
 
 async function post(route, bodyJson) {
 	let url = global.apiBaseUrl + route;
@@ -31,5 +83,7 @@ async function post(route, bodyJson) {
 		},
 		credentials: "include",
 		body: JSON.stringify(bodyJson),
-	}).catch((err) => console.trace(err));
+	})
+		.then((res) => res.json())
+		.catch((err) => console.trace(err));
 }
