@@ -5,6 +5,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+// Later move this to a NGINX reverse proxy as micromc.net/api
+global.apiBaseUrl = "http://micromc.net:3003";
+
 ReactDOM.render(
   <Router>
     <App />
