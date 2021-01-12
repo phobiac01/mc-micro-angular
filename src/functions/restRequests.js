@@ -48,15 +48,9 @@ exports.deleteServer = async (serverId) => {
 exports.getServers = async () => {
 	// Should return with list of all servers bound to the current user
 	console.log("getServers works!");
-	return [
-		{ serverName: "Some BS Server Name", serverId: "lmaaaaoooooooooooo", isRunning: false },
-		{ serverName: "Some Other BS Server Name", serverId: "yeeeeettttuuuussss", isRunning: true },
-		{
-			serverName: "Some Other Other BS Server Name",
-			serverId: "42000000000000000",
-			isRunning: false,
-		},
-	];
+	let results = await fetch(global.apiBaseUrl + "/getServers").then((res) => res.json());
+	console.log(results);
+	return [];
 };
 
 exports.getServer = async (serverId) => {
